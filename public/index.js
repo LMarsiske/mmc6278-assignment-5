@@ -1,5 +1,7 @@
 async function getInventory() {
+  console.log("getting inventory")
   const res = await fetch('/api/inventory')
+  console.log(res)
   if (res.status !== 200) throw new Error('Did not receive 200 for /api/inventory')
   if (!res.headers.get('Content-Type').includes('json')) throw new Error('Did not receive JSON response for /api/inventory')
   const inventory = await res.json()
@@ -16,6 +18,7 @@ async function getProduct(inventoryId) {
 }
 
 async function getCart() {
+  console.log("getting cart")
   const res = await fetch('/api/cart')
   if (res.status !== 200) throw new Error('Did not receive 200 for /api/cart')
   if (!res.headers.get('Content-Type').includes('json')) throw new Error('Did not receive JSON response /api/cart')
